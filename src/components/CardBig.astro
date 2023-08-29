@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  img_src: string;
+  alt: string;
+}
+
+const { title, description, img_src, alt } = Astro.props;
+---
+
+<li
+  class="col-span-2 mt-2 p-2 bg-blue-50 border shadow-xl rounded-xl sm:p-3 md:p-4"
+>
+  <a href="#" class="">
+    <img src={img_src} alt={alt} class="w-auto rounded-xl" />
+    <h2 class="text-xl font-bold">{title}</h2>
+    <p class="text-base">{description}</p>
+  </a>
+</li>

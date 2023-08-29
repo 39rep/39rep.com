@@ -1,15 +1,56 @@
 ---
+import CardLong from "../components/CardLong.astro";
+import CardSmall from "../components/CardSmall.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="39rep">
+  <main class="flex flex-col items-center">
+    <!-- Diary -->
+    <div class="mt-10">
+      <div class="flex items-end">
+        <h1 class="text-2xl">Diary</h1>
+        <a href="/diary/" class="ml-2">→Read more</a>
+      </div>
+      <ul class="grid grid-cols-2 justify-center justify-items-stretch gap-2">
+        <CardSmall
+          title="sleeping now"
+          description="I am kabigon."
+          img_src="/assets/sleep_kabigon.png"
+          alt="SleepingKabigon"
+        />
+        <CardSmall
+          title="sleeping now"
+          description="I am kabigon."
+          img_src="/assets/sleep_kabigon.png"
+          alt="SleepingKabigon"
+        />
+      </ul>
+    </div>
+
+    <!-- Likes -->
+    <div class="mt-10">
+      <h1 class="text-2xl">Likes</h1>
+      <ul class="grid grid-cols-2 justify-center justify-items-stretch gap-2">
+        <CardLong
+          title="初音ミク"
+          description="宇宙で歌うVirtualSinger"
+          img_src="/assets/space_miku.png"
+          alt="HatsuneMiku"
+        />
+        <CardSmall
+          title="タイトル"
+          description="説明など何かあれば"
+          img_src="/assets/space_miku.png"
+          alt="てすとだよ"
+        />
+        <CardSmall
+          title="タイトル2"
+          description="説明など何かあれば2"
+          img_src="/assets/space_miku.png"
+          alt="てすとだよ2"
+        />
+      </ul>
+    </div>
+  </main>
+</Layout>
