@@ -1,6 +1,7 @@
 ---
 import CardLong from "@components/CardLong.astro";
 import CardSmall from "@components/CardSmall.astro";
+import Link from "@components/Link.astro";
 import Layout from "@layouts/Layout.astro";
 
 const allPosts = await Astro.glob("./posts/*.md");
@@ -8,11 +9,13 @@ const allPosts = await Astro.glob("./posts/*.md");
 
 <Layout title="39rep">
   <main class="flex flex-col items-center">
-    <!-- Diary -->
+    <!-- Posts -->
     <div class="w-full">
       <div class="flex items-end">
         <h1 class="text-2xl font-bold">Latest Posts</h1>
-        <a href="/posts/" class="ml-2">→All Posts</a>
+        <a href="/posts/" class="ml-2 hover:text-blue-700 hover:scale-105"
+          >→All Posts</a
+        >
       </div>
       <ul class="grid grid-cols-2 justify-center justify-items-stretch gap-4">
         {
