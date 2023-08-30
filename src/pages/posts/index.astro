@@ -1,0 +1,28 @@
+---
+import CardSmall from "@components/CardSmall.astro";
+import Layout from "@layouts/Layout.astro";
+const allPosts = await Astro.glob("../posts/*.md");
+const pageTitle = "Posts";
+---
+
+<Layout title={pageTitle}>
+  <h1 class="text-2xl font-bold">Posts</h1>
+  <ul class="grid grid-cols-2 justify-center justify-items-stretch gap-4">
+    {
+      allPosts
+        .reverse()
+        .map((post) => (
+          <CardSmall
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            img_src={post.frontmatter.image.url}
+            alt={post.frontmatter.alt}
+            href={post.url ? post.url : "404"}
+          />
+        ))
+    }
+  </ul>
+  <div class="flex justify-end">
+    <a href="#" class="text-2xl mr-5 mt-5 hover:-translate-y-1">↑Page Top</a>
+  </div>
+</Layout>

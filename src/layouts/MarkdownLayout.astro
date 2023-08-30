@@ -1,0 +1,20 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <img
+    src={frontmatter.image.url}
+    alt={frontmatter.image.alt}
+    class="max-w-full mx-auto object-cover rounded-xl"
+  />
+  <p class="mb-16 flex justify-end">{frontmatter.description}</p>
+  <div class="prose">
+    <div class="flex items-baseline">
+      <h1 class="mr-6">{frontmatter.title}</h1>
+      <p>{frontmatter.pubDate.slice(0, 10)}</p>
+    </div>
+    <slot />
+  </div>
+</Layout>

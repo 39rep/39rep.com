@@ -4,15 +4,16 @@ interface Props {
   description: string;
   img_src: string;
   alt: string;
+  href: any;
 }
 
-const { title, description, img_src, alt } = Astro.props;
+const { title, description, img_src, alt, href } = Astro.props;
 ---
 
 <li
   class="col-span-2 mt-2 w-auto bg-blue-50 border shadow-xl rounded-xl hover:scale-105 sm:col-span-1"
 >
-  <a href="#" class="grid p-2 sm:p-3">
+  <a href={href} class="grid p-2 sm:p-3">
     <img
       src={img_src}
       alt={alt}
