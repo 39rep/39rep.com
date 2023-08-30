@@ -1,0 +1,12 @@
+---
+import Layout from "@layouts/Layout.astro";
+const pageTitle = "404 Not Found";
+const message = "このページは存在しないか削除された可能性があります。";
+---
+
+<Layout title={pageTitle}>
+  <div class="flex flex-col items-center">
+    <h1 class="text-2xl">{pageTitle}</h1>
+    <h2 class="text-xl mt-2">{message}</h2>
+  </div>
+</Layout>
