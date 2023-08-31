@@ -1,0 +1,12 @@
+---
+import Home from "@components/Home.astro";
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <Home />
+  <div class="prose max-w-none">
+    <slot />
+  </div>
+</Layout>
