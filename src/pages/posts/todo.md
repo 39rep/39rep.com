@@ -1,6 +1,7 @@
 ---
 layout: "@layouts/MarkdownLayout.astro"
 title: "やることリスト"
+draft: true
 pubDate: 2023-08-31
 description: "頑張ろうね"
 image:
@@ -8,7 +9,6 @@ image:
   alt: ""
 emoji: "📃"
 tags: ["ブログ"]
-draft: true
 ---
 
 - 前の記事、次の記事のボタン

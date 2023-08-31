@@ -1,10 +1,10 @@
 ---
-import CardLong from "@components/CardLong.astro";
 import CardSmall from "@components/CardSmall.astro";
 import SocialCard from "@components/SocialCard.astro";
 import Layout from "@layouts/Layout.astro";
 
 const allPosts = await Astro.glob("./posts/*.md");
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
 ---
 
 <Layout title="39rep">
@@ -19,7 +19,7 @@ const allPosts = await Astro.glob("./posts/*.md");
       </div>
       <ul class="grid grid-cols-2 justify-center justify-items-stretch gap-4">
         {
-          allPosts
+          nonDraftPosts
             .slice(-2)
             .reverse()
             .map((post) => (
