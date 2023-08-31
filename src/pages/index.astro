@@ -1,6 +1,7 @@
 ---
 import CardLong from "@components/CardLong.astro";
 import CardSmall from "@components/CardSmall.astro";
+import SocialCard from "@components/SocialCard.astro";
 import Layout from "@layouts/Layout.astro";
 
 const allPosts = await Astro.glob("./posts/*.md");
@@ -37,30 +38,36 @@ const allPosts = await Astro.glob("./posts/*.md");
 
     <!-- Likes -->
     <div class="mt-10 w-full">
-      <h1 class="text-2xl font-bold">Likes</h1>
-      <ul class="grid grid-cols-2 justify-center justify-items-stretch gap-4">
-        <CardLong
-          title="初音ミク"
-          description="宇宙で歌うVirtualSinger"
-          img_src="/assets/space_miku.png"
-          alt="HatsuneMiku"
-        />
-        <CardSmall
-          title="タイトル"
-          description="説明など何かあれば"
-          img_src=""
-          alt="HatsuneMiku"
-          emoji="✨"
-          href="#"
-        />
-        <CardSmall
-          title="タイトル2"
-          description="説明など何かあれば2"
-          img_src=""
-          alt="HatsuneMiku"
-          emoji="🚄"
-          href="#"
-        />
+      <div class="flex items-end">
+        <h1 class="text-2xl font-bold">Links</h1>
+        <p class="ml-2 hover:text-blue-700 hover:scale-105">
+          (X, Github, Discord)
+        </p>
+      </div>
+      <ul
+        class="grid grid-cols-2 sm:grid-cols-3 justify-center justify-items-stretch gap-6"
+      >
+        <SocialCard href="https:/x.com/39rep" color="bg-gray-700">
+          <img
+            src="/assets/x.svg"
+            alt="X(Twitter)"
+            class="w-28 aspect-square"
+          />
+        </SocialCard>
+        <SocialCard href="https:/github.com/39rep" color="bg-gray-700">
+          <img
+            src="/assets/github-mark-white.svg"
+            alt="Github"
+            class="w-28 aspect-square"
+          />
+        </SocialCard>
+        <SocialCard href="https:/github.com/39rep" color="bg-gray-700">
+          <img
+            src="/assets/discord_logo.svg"
+            alt="Discord"
+            class="w-28 aspect-square"
+          />
+        </SocialCard>
       </ul>
     </div>
   </main>

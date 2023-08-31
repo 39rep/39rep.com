@@ -1,0 +1,19 @@
+---
+interface Props {
+  href: string;
+  color: string;
+}
+
+const { href, color } = Astro.props;
+---
+
+<li
+  class={color +
+    " col-span-1 mt-2 w-auto aspect-square border shadow-xl rounded-xl hover:scale-105"}
+>
+  <a href={href} class="grid w-full h-full p-2 sm:p-3" target="_blank">
+    <div class="p-7 flex items-center justify-center">
+      <slot />
+    </div>
+  </a>
+</li>
