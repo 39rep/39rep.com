@@ -1,4 +1,5 @@
 ---
+import Emoji from "@components/Emoji.astro";
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 ---
@@ -7,17 +8,26 @@ const { frontmatter } = Astro.props;
   <div class="mb-2">
     <a href="/posts/" class="text-2xl font-bold">←All Posts</a>
   </div>
-  <img
-    src={frontmatter.image.url}
-    alt={frontmatter.image.alt}
-    class="max-w-full mx-auto object-cover rounded-xl"
-  />
+  <div class="flex justify-center">
+    {
+      frontmatter.image.url ? (
+        <img
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+          class="max-w-full mx-auto object-cover rounded-xl"
+        />
+      ) : (
+        <Emoji emoji={frontmatter.emoji} />
+      )
+    }
+  </div>
   <p class="mb-16 flex justify-end">{frontmatter.description}</p>
-  <div class="prose">
+  <div class="prose max-w-none">
     <div class="flex items-baseline">
-      <h1 class="mr-6">{frontmatter.title}</h1>
+      <h1 class="mr-6 mb-0">{frontmatter.title}</h1>
       <p>{frontmatter.pubDate.slice(0, 10)}</p>
     </div>
+    <hr class="m-1 h-0.5 bg-gray-400 mb-7" />
     <slot />
   </div>
 </Layout>

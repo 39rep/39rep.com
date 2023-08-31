@@ -1,0 +1,18 @@
+---
+interface Props {
+  emoji: string;
+  // absolute: boolean;
+}
+
+const { emoji } = Astro.props;
+---
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-28">
+  <text
+    x="50%"
+    y="50%"
+    style="dominant-baseline:central;text-anchor:middle;font-size:70px;"
+  >
+    {emoji}
+  </text>
+</svg>

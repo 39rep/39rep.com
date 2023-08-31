@@ -26,7 +26,8 @@ const allPosts = await Astro.glob("./posts/*.md");
                 title={post.frontmatter.title}
                 description={post.frontmatter.description}
                 img_src={post.frontmatter.image.url}
-                alt={post.frontmatter.alt}
+                alt={post.frontmatter.image.alt}
+                emoji={post.frontmatter.emoji}
                 href={post.url ? post.url : "404"}
               />
             ))
@@ -47,15 +48,17 @@ const allPosts = await Astro.glob("./posts/*.md");
         <CardSmall
           title="タイトル"
           description="説明など何かあれば"
-          img_src="/assets/space_miku.png"
-          alt="てすとだよ"
+          img_src=""
+          alt="HatsuneMiku"
+          emoji="✨"
           href="#"
         />
         <CardSmall
           title="タイトル2"
           description="説明など何かあれば2"
-          img_src="/assets/3baka.jpg"
-          alt="てすとだよ2"
+          img_src=""
+          alt="HatsuneMiku"
+          emoji="🚄"
           href="#"
         />
       </ul>

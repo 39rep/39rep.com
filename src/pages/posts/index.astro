@@ -16,7 +16,8 @@ const pageTitle = "Posts";
             title={post.frontmatter.title}
             description={post.frontmatter.description}
             img_src={post.frontmatter.image.url}
-            alt={post.frontmatter.alt}
+            alt={post.frontmatter.image.alt}
+            emoji={post.frontmatter.emoji}
             href={post.url ? post.url : "404"}
           />
         ))
