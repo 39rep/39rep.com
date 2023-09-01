@@ -13,7 +13,9 @@ const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
     <div class="w-full">
       <div class="flex items-end">
         <h1 class="text-2xl font-bold">Latest Posts</h1>
-        <a href="/posts/" class="ml-2 hover:text-blue-700 hover:font-bold"
+        <a
+          href="/posts/"
+          class="ml-2 hover:text-blue-700 hover:font-bold duration-300"
           >→All Posts</a
         >
       </div>
@@ -40,9 +42,7 @@ const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
     <div class="mt-10 w-full">
       <div class="flex items-end">
         <h1 class="text-2xl font-bold">Links</h1>
-        <p class="ml-2 hover:text-blue-700 hover:scale-105">
-          (X, Github, Discord)
-        </p>
+        <p class="ml-2">(X, Github, Discord)</p>
       </div>
       <ul
         class="grid grid-cols-2 sm:grid-cols-3 justify-center justify-items-stretch gap-6"

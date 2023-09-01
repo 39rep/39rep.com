@@ -1,7 +1,14 @@
 ---
 import Emoji from "@components/Emoji.astro";
 import Layout from "./Layout.astro";
+
 const { frontmatter } = Astro.props;
+const prevPostId = frontmatter.id - 1;
+const nextPostId = frontmatter.id + 1;
+
+const allPosts = await Astro.glob("../pages/posts/*.md");
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
+const latestPost = nonDraftPosts.slice(-1)[0];
 ---
 
 <Layout title={frontmatter.title + " | 39rep"}>
@@ -9,8 +16,9 @@ const { frontmatter } = Astro.props;
     <a href="/posts/" class="text-2xl font-bold hover:text-blue-700"
       >←All Posts</a
     >
-    <hr class="m-1 h-0.5 bg-gray-400 mt-3 mb-7" />
+    <hr class="my-1 h-0.5 bg-gray-400 mt-3 mb-7" />
   </div>
+
   <div class="flex justify-center">
     {
       frontmatter.image.url ? (
@@ -25,11 +33,44 @@ const { frontmatter } = Astro.props;
     }
   </div>
   <p class="mb-16 flex justify-end">{frontmatter.description}</p>
+
   <div class="prose max-w-none">
     <div class="flex items-baseline">
       <h1 class="mr-6 mb-0">{frontmatter.title}</h1>
       <p>{frontmatter.pubDate.slice(0, 10)}</p>
     </div>
     <slot />
+  </div>
+  <hr class="my-1 mt-5 h-0.5 bg-gray-400 mt-3 mb-7" />
+
+  <div class="flex flex-row justify-between">
+    {
+      prevPostId < 1 ? (
+        <p>・これが最古の記事だよ</p>
+      ) : (
+        <button type="button">
+          <a
+            href={"/posts/" + prevPostId.toString()}
+            class="text-lg font-bold hover:text-blue-700 duration-300"
+          >
+            ←前回の記事
+          </a>
+        </button>
+      )
+    }
+    {
+      latestPost.frontmatter.id < nextPostId ? (
+        <p>これが最新の記事だよ・</p>
+      ) : (
+        <button type="button">
+          <a
+            href={"/posts/" + nextPostId.toString()}
+            class="text-lg font-bold hover:text-blue-700 duration-300"
+          >
+            次回の記事→
+          </a>
+        </button>
+      )
+    }
   </div>
 </Layout>
