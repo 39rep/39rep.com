@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 interface Props {
@@ -9,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="39rep website." />
@@ -19,10 +20,11 @@ const { title } = Astro.props;
     <title>{title}</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5058190780838197"
      crossorigin="anonymous"></script>
+     <ViewTransitions/>
   </head>
   <body class="min-h-screen">
     <div class="h-24"></div>
-    <div class="mx-auto px-8 max-w-3xl">
+    <div class="mx-auto px-8 max-w-3xl" transition:animate="initial">
       <Header />
       <slot />
     </div>
