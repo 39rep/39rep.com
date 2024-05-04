@@ -14,4 +14,6 @@ export default defineConfig({
       },
     }),
   ],
+  site: 'https://39rep.github.io',
+  base: '/39rep.com',
 });
